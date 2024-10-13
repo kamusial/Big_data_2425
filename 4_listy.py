@@ -32,3 +32,4 @@ print('suma wynosi', suma)
 print('iloczyn wynosi', iloczyn)
 
 
+
