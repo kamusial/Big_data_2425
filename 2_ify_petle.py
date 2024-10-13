@@ -18,3 +18,5 @@ for i in range(len(napis)):
     if napis[i] == ' ':
         print('pierwsze słowo to', napis[0:i])
 
+
+
