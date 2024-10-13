@@ -49,12 +49,16 @@ print('średnia wypłata wynosi', total / (len(content)-1))
 macierzynski = 0
 for i in range(1, len(content)):
     if content[i][3] == 'k':
-        if content[i][4] == 't\n' or content[i][4] == 't':
+        content[i][4] = content[i][4].replace('\n','')
+        if content[i][4][0].lower() == 't':
             macierzynski += 1
 print('liczba Pań na macierzynskim: ',macierzynski)
 
-
-
-
-
-
+# 4. Ile najwięcej kolumn mają linie
+max_kolumn = 0
+index = -1
+for i in range(len(content)):
+    if len(content[i]) > max_kolumn:
+        max_kolumn = len(content[i])
+        index = i
+print('max', max_kolumn, 'kolumn w linii', index+1)
