@@ -33,8 +33,25 @@ print(content[0][2][3:10])  # kawałek pola
 print('koniec części pierwszej\n')
 
 # 2. Oblicz średnią wypłatę
+total = 0
+licznik = 0
+for i in range(1, len(content)): #cała bez pierwszej linii
+    print(content[i][1])
+#    content[i][1] = int(content[i][1])  # zamień na liczbę
+    total += int(content[i][1])
+    if int(content[i][1]) > 4000:
+        licznik += 1    # licz ile osób zarabia ponad 4k
+print('suma wyplat to:', total)
+print('średnia wypłata wynosi', total / (len(content)-1))
+# print('Liczba kolumn',len(content[2]))
 
-
+# 3. Ile kobiet jest na macierzyńskim?
+macierzynski = 0
+for i in range(1, len(content)):
+    if content[i][3] == 'k':
+        if content[i][4] == 't\n' or content[i][4] == 't':
+            macierzynski += 1
+print('liczba Pań na macierzynskim: ',macierzynski)
 
 
 
