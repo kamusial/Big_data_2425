@@ -1,7 +1,7 @@
 # 1. Odczyt pliku CSV z zapisem poszczególnych pól
 
 
-with open('rozliczenie.csv', 'r') as file1:
+with open('../rozliczenie.csv', 'r') as file1:
     # content = file1.read()
     # print(content)
     # content = file1.read(5)

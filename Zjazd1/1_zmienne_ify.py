@@ -21,7 +21,7 @@ print(slowo + napis)
 
 wiek = int(input('Podaj wiek:   '))
 
-if wiek<18:
+if wiek < 18:
     print('Masz',wiek,'lat')
     print('Będziesz pełnoletni za',18 - wiek,'lat')
     print('I tyle')
