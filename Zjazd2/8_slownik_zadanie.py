@@ -19,5 +19,3 @@ print(f'Lidl: {total_lidl}')
 print(f'Aldi: {total_aldi}')
 print(f'Dino: {total_dino}')
 
-
-
