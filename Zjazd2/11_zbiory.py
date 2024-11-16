@@ -17,3 +17,11 @@ print(f'ilość: {len(chorzy_rok & krzyki)}')
 # sprawdźmy ile osób z Krzyków chorowało w ostatnim roku
 print(f'\nChorzy w ostatnim roku na krzykach: {krzyki & chorzy_rok}')
 print(f'ilość: {len(krzyki & chorzy_miesiac)}')
+
+# sprawdźmy, ile osób chorowało w ostatnim miesiącu w centrum
+print(f'\nChorzy w ostatnim miesiącu w centrum {centrum & chorzy_miesiac}')
+print(f'Ilość {len(centrum & chorzy_miesiac)}')
+
+# sprawdźmy, ile osób mieszka w sumie w centrum i na krzykach
+print(f'\nMieszkańcy centrum i krzyków: {krzyki | centrum}')
+print(f'Ilosc {len(krzyki | centrum)}')
