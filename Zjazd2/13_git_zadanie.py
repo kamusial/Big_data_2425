@@ -1,2 +1,2 @@
 print('Costam')
-print('ghfdf')
+print('Tu bedzie cos nowego')
