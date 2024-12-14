@@ -1,5 +1,8 @@
 import pandas as pd
 import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import confusion_matrix
 
 # df = pd.read_csv('dane\\ndiabetes.csv')
 # df = pd.read_csv(r'dane\ndiabetes.csv')   # raw string
@@ -31,5 +34,24 @@ print(df.isna().sum())    # suma pustych pól
 # df.to_csv(r'..\Zjazd2\cukrzyca.csv')
 df.to_csv(r'dane_po_obrobce\cukrzyca.csv')
 df.to_csv(r'C:\Users\vdi-belfer\Desktop\cukrzyca.csv', sep=';', index=False)
+
+### Regresja logistyczna - ML
+X = df.iloc[:, :-1]   # wszysktie wiersze, wszystkie kolumny bez ostatniej
+y = df.outcome    # ostatnia columna
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+model = LogisticRegression()
+model.fit(X_train, y_train)  # dopasowanie, uczenie
+print(f'dokładność modelu {model.score(X_test, y_test)}')
+print(pd.DataFrame(confusion_matrix(y_test, model.predict(X_test))))
+
+print('sprawdżmy, czy klasy zbalansowane')
+print(df.outcome.value_counts())
+
+print('zmiana danych')
+df1 = df.query('outcome==0').sample(n=500)
+df2 = df.query('outcome==1').sample(n=500)
+df3 = pd.concat([df1, df2])   #łączenie
+
+
 
 
