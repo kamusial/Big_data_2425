@@ -52,6 +52,12 @@ df1 = df.query('outcome==0').sample(n=500)
 df2 = df.query('outcome==1').sample(n=500)
 df3 = pd.concat([df1, df2])   #łączenie
 
-
+X = df3.iloc[:, :-1]   # wszysktie wiersze, wszystkie kolumny bez ostatniej
+y = df3.outcome    # ostatnia columna
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+model = LogisticRegression()
+model.fit(X_train, y_train)  # dopasowanie, uczenie
+print(f'dokładność modelu {model.score(X_test, y_test)}')
+print(pd.DataFrame(confusion_matrix(y_test, model.predict(X_test))))
 
 
