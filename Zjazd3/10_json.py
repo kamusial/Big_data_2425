@@ -28,3 +28,57 @@ file2 = {
     }
   ]
 }
+print(f'nazwa sklepu {file2["nazwa_sklepu"]}')
+print(f'Ulica w adresie: {file2["adres"]["ulica"]}')
+print(f'Cena myszy {file2["produkty"][1]["cena"]}')
+file2["produkty"][0]["stan"] = 'nowy'
+
+nowy_produkt = {
+      "nazwa": "monitor",
+      "cena": 879.99,
+      "kategoria": "Wyswietlanie"
+    }
+
+file2["produkty"].append(nowy_produkt)
+
+# JSON zawierający dane o projekcie z uczestnikami i zadaniami
+file3 = {
+  "projekt": {
+    "id": 123,
+    "nazwa": "System zarządzania magazynem",
+    "status": "w trakcie"
+  },
+  "uczestnicy": [
+    {
+      "imie": "Anna",
+      "nazwisko": "Nowak",
+      "rola": "Project Manager",
+      "kontakt": {
+        "email": "anna.nowak@example.com",
+        "telefon": "+48 123 456 789"
+      }
+    },
+    {
+      "imie": "Piotr",
+      "nazwisko": "Zieliński",
+      "rola": "Developer",
+      "kontakt": {
+        "email": "piotr.zielinski@example.com"
+      }
+    }
+  ],
+  "zadania": [
+    {
+      "id_zadania": 1,
+      "opis": "Analiza wymagań klienta",
+      "przypisany_do": "Anna Nowak",
+      "status": "zrobione"
+    },
+    {
+      "id_zadania": 2,
+      "opis": "Implementacja modułu logowania",
+      "przypisany_do": "Piotr Zieliński",
+      "status": "w trakcie"
+    }
+  ]
+}
