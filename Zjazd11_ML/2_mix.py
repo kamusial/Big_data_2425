@@ -8,7 +8,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix
 
-X, y = make_circles(n_samples=100, factor=0.4, noise=0.2)
+X, y = make_circles(n_samples=1000, factor=0.4, noise=0.3)
 # print(X)
 # print(y)
 plt.scatter(X[:, 0], X[:, 1], c=y)
