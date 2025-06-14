@@ -6,14 +6,14 @@ from tensorflow.keras.layers import Dense
 import random
 
 # Określenie zakresu wartości x (od -2π do 2π z krokiem 0.1)
-x = np.arange(-4 * np.pi, 4 * np.pi, 0.1)
+x = np.arange(-8 * np.pi, 8 * np.pi, 0.4)
 
 # Obliczenie wartości funkcji sinus dla każdego x
 #y = []
 
 # for number in x:
 #     y.append(np.sin(number) * random.uniform(0.8, 1.2))
-y = np.array([np.sin(number) * random.uniform(0.4, 1.6) for number in x])
+y = np.array([np.sin(number) * np.exp(-0.05 * number) * random.uniform(0.5, 1.5) for number in x])
 #y = np.array(y)
 
 
@@ -46,12 +46,9 @@ plt.show()
 
 model = Sequential()
 model.add(Dense(1, input_dim=1, activation='linear'))  # Warstwa wejściowa
-model.add(Dense(100, activation='relu'))
-model.add(Dense(100, activation='linear'))
-# model.add(Dense(100, activation='linear'))
-# model.add(Dense(100, activation='sigmoid'))
-# model.add(Dense(100, activation='relu'))
-model.add(Dense(100, activation='linear'))
+model.add(Dense(5, activation='relu'))
+model.add(Dense(5, activation='relu'))
+model.add(Dense(5, activation='linear'))
 model.add(Dense(1))  # Warstwa wyjściowa
 model.compile(optimizer='adam', loss='mse')
 
@@ -59,7 +56,7 @@ model.compile(optimizer='adam', loss='mse')
 x_reshape = x.reshape(-1, 1)
 y_reshape = y.reshape(-1, 1)
 
-model.fit(x_reshape, y_reshape, epochs=1000, verbose=2)
+model.fit(x_reshape, y_reshape, epochs=5000, verbose=2)
 
 y_pred = model.predict(x)
 plt.scatter(x, y)
